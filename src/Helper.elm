@@ -1,1 +1,54 @@
 module Helper exposing (..)
+
+import Html.Attributes exposing (list)
+
+
+type GradeStatus
+    = Approved
+    | Failed
+    | Pending
+
+
+categoricalGrade : List Float -> List GradeStatus
+categoricalGrade grades =
+    List.map checkStatus grades
+
+
+checkStatus : Float -> GradeStatus
+checkStatus grade =
+    if grade < 0 then
+        Pending
+
+    else if grade > 7 then
+        Approved
+
+    else
+        Failed
+
+
+type AirplaneStatus
+    = OnTime
+    | Boarding
+    | Delayed
+    | Cancelled
+
+
+airPlaneScheduleAction : AirplaneStatus -> String
+airPlaneScheduleAction status =
+    case status of
+        Cancelled ->
+            "Pedir reembolso"
+
+        Delayed ->
+            "Esperar"
+
+        OnTime ->
+            "Esperar"
+
+        Boarding ->
+            "Buscar boleto"
+
+
+airportAction : List AirplaneStatus -> List String
+airportAction statusList =
+    List.map airplaneScheduleAction statusList
