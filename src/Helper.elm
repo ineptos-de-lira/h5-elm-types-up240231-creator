@@ -33,8 +33,8 @@ type AirplaneStatus
     | Cancelled
 
 
-airPlaneScheduleAction : AirplaneStatus -> String
-airPlaneScheduleAction status =
+airplaneScheduleAction : AirplaneStatus -> String
+airplaneScheduleAction status =
     case status of
         Cancelled ->
             "Pedir reembolso"
